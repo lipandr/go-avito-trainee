@@ -1,0 +1,22 @@
+create IF NOT EXISTS table users
+(
+    id       Serial Primary key,
+    email    VARCHAR unique,
+    hash     VARCHAR unique,
+    verified bool
+);
+
+create IF NOT EXISTS table urls
+(
+    id       Serial Primary key,
+    url    VARCHAR(255),
+    price numeric not null,
+    active bool
+);
+
+create table IF NOT EXISTS user_url
+(
+    id       BigSerial Primary key,
+    user_id serial references users(id),
+    url_id serial references urls(id)
+);

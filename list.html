@@ -1,0 +1,21 @@
+{{ define "body"}}
+<div class="text-center p-2">
+    <h2>Here is your list of URLs you are tracking</h2>
+    <table class="table table-bordered table-striped table-sm">
+        <thead>
+        <tr><th>Email</th><th>URLs</th></tr>
+        </thead>
+        <tbody>
+        {{ range . }}
+        <tr>
+            <td>{{ .Email }}</td>
+            <td>{{ .URLtoTrack }}</td>
+        </tr>
+        {{ end }}
+        </tbody>
+    </table>
+    <a class="btn btn-primary" href="/">
+        Main page
+    </a>
+</div>
+{{ end }}

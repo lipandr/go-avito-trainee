@@ -1,0 +1,23 @@
+{{ define "body"}}
+<div class="h5 bg-primary text-white text-center m-2 p-2">Avito price tracking Service</div>
+{{ if gt (len .Errors) 0}}
+<ul class="text-danger mt-3">
+    {{ range .Errors }}
+    <li>{{ . }}</li>
+    {{ end }}
+</ul>
+{{ end }}
+<form method="POST" class="m-2">
+    <div class="form-group my-1">
+        <label>Your email:</label>
+        <input name="email" class="form-control" value="{{ .Email }}" />
+    </div>
+    <div class="form-group my-1">
+        <label>Avito URL for price tracking:</label>
+        <input name="url" class="form-control" value="{{ .URLtoTrack }}" />
+    </div>
+    <button class="btn btn-primary mt-3" type="submit">
+        Track
+    </button>
+</form>
+{{ end }}
